@@ -225,7 +225,7 @@ $value = ws_call($configProxy, 'getLoggingConfiguration',\@params );
 #print " $value->{databaseLogging} " ; 
 
 print "\n------------getProjects";
-@params = ({namePattern=>"*"});
+@params = (SOAP::Data->name("filterSpec" => { namePattern => '*'}));
 my @projects = ws_call($configProxy, 'getProjects',\@params );
 #foreach $project (@projects) { print " $project->{projectKey}"; }
 
